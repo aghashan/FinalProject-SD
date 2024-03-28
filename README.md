@@ -9,4 +9,4 @@ Aplikasi Pencatatan Service
 
 - [@descanle](https://github.com/descanle)
 
-- [ocakalista](https://github.com/ocakalista)
+- [@ocakalista](https://github.com/ocakalista)
