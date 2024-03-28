@@ -8,3 +8,5 @@ Aplikasi Pencatatan Service
 - [@aghashan](https://www.github.com/aghashan)
 
 - [@descanle](https://github.com/descanle)
+
+- [ocakalista](https://github.com/ocakalista)
