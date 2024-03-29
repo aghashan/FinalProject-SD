@@ -1,8 +1,17 @@
+// --- Requirements ---
+// + Queue = done
+// + Sorting =
+// + Searcing =
+// + Struct = done
+// + Array = done
+// --------------------
+
 #include <iostream>
-#define max 25 // jadi maksimum data yang dimasukkan adalah 25
+#define max 25 //jadi maksimum data yang dimasukkan adalah 25
 
 using namespace std;
 
+//Strat Struct  
 struct customer
 {
     string nama;
@@ -18,8 +27,10 @@ struct antrian
     int awal;
     int akhir;
 } antri;
+//End Struct
 
-void resetAntrian() // untuk reset antrian / menghapus semua antrian
+//Start Queue 
+void resetAntrian() //untuk reset antrian / menghapus semua antrian
 {
     antri.awal = 0;
     antri.akhir = 0;
@@ -53,6 +64,7 @@ void lihat() //menampilkan data yang sudah tersimpan pada array
 {
     if (!kosong())
     {
+            //Start Array
         for (int i = antri.awal; i <= antri.akhir - 1; i++)
         {
             cout << "---- Antrian ke-" << i + 1 << "- ---" << endl;
@@ -63,12 +75,40 @@ void lihat() //menampilkan data yang sudah tersimpan pada array
             cout << "Tanggal : " << antri.data[i].tanggal << endl;
             cout << "------------------------" << endl;
         }
+            //End Array
     }
 }
 
-void input() //untuk menambahkan data 
+void hapus()
 {
-    customer cus; //untuk mengakses data yabg berada di customer  
+    if (!kosong())
+    {
+        //Start Array
+        for (int i = antri.awal; i <= antri.akhir - 1; i++)
+        {
+            cout << "---- Antrian ke-" << i + 1 << "- ---" << endl;
+            cout << "Nama : " << antri.data[i].nama << endl;
+            cout << "Nomor Telepon : " << antri.data[i].noTlp << endl;
+            cout << "Tipe HP : " << antri.data[i].tipeHp << endl;
+            cout << "Kerusakan : " << antri.data[i].kerusakan << endl;
+            cout << "Tanggal : " << antri.data[i].tanggal << endl;
+            cout << "------------------------" << endl;
+
+            cout << "Sudah selesai service!!" << endl;
+            antri.akhir--;
+        }
+        //End Array
+    }
+    else
+    {
+        cout << "Tidak ada antrian service!!" << endl;
+    }
+}
+//End Queue
+
+void input() //untuk menambahkan data
+{
+    customer cus; //untuk mengakses data yabg berada di customer
 
     if (!penuh())
     {
@@ -97,7 +137,6 @@ void input() //untuk menambahkan data
     {
         cout << "antrian service sudah penuh!!" << endl;
     }
-    getchar();
 }
 
 int main()
@@ -109,6 +148,7 @@ int main()
         cout << "----------" << endl;
         cout << "[1] Input" << endl;
         cout << "[2] Lihat" << endl;
+        cout << "[3] Hapus" << endl;
         cout << "[0] Keluar" << endl;
         cout << "-----------" << endl;
         cout << "Masukan pilihan : ";
@@ -121,6 +161,9 @@ int main()
             break;
         case 2:
             lihat();
+            break;
+        case 3:
+            hapus();
             break;
         default:
             break;
